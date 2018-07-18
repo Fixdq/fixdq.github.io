@@ -1,4 +1,14 @@
-# Logs
+# hexo
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/# Logs
+package-lock.json
+
+# log
 logs
 *.log
 npm-debug.log*
