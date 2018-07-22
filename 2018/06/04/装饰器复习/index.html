@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#fff">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="https://cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#fff">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是装饰器 装饰器事闭包函数的一种应用场景装饰器可以在不修改被修饰对象源代码与调用方式的前提下，为被修饰的对象添加上新的功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="装饰器">
+<meta property="og:url" content="https://fixdq.github.io/2018/06/04/装饰器复习/index.html">
+<meta property="og:site_name" content="fixd">
+<meta property="og:description" content="什么是装饰器 装饰器事闭包函数的一种应用场景装饰器可以在不修改被修饰对象源代码与调用方式的前提下，为被修饰的对象添加上新的功能">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-22T13:03:57.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="装饰器">
+<meta name="twitter:description" content="什么是装饰器 装饰器事闭包函数的一种应用场景装饰器可以在不修改被修饰对象源代码与调用方式的前提下，为被修饰的对象添加上新的功能">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fixdq.github.io/2018/06/04/装饰器复习/"/>
+
+
+
+
+
+  <title>装饰器 | fixd</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+      
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">fixd</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">subtitle</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+      <a href="https://github.com/fixdq"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fixdq.github.io/2018/06/04/装饰器复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fixd Quan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3b6.png?v5">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fixd">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">装饰器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T23:32:11+08:00">
+                2018-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是装饰器"><a href="#什么是装饰器" class="headerlink" title="什么是装饰器"></a>什么是装饰器</h3><blockquote>
+<p>装饰器事闭包函数的一种应用场景<br>装饰器可以在不修改被修饰对象源代码与调用方式的前提下，为被修饰的对象添加上新的功能<br><a id="more"></a><br>装饰器与被装饰对象均可以是任意可调用的对象</p>
+</blockquote>
+<h3 id="为什么要用装饰器"><a href="#为什么要用装饰器" class="headerlink" title="为什么要用装饰器"></a>为什么要用装饰器</h3><blockquote>
+<p>开放封闭原则：<br>软件一旦上线后，就应该遵循开放封闭原则，即对源码修改封闭，对功能扩展是开发的。<br>也就是说必须要有一种解决方案，能够在不修改一个功能源代码及其调用方式的前提下为其添加上新功能</p>
+</blockquote>
+<h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line"><span class="comment"># 装饰器的基本格式</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        res = func(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算每个函数执行的时间</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        func()</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        total = end_time - start_time</span><br><span class="line">        print(total)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 需要被装饰的函数</span></span><br><span class="line"><span class="meta">@wrapper</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 模拟函数的执行时间</span></span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用函数</span></span><br><span class="line">run()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 进阶版 修饰有参数的函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(*args, **kwargs)</span>:</span>  <span class="comment"># 在内函数加上通用形参</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        func(*args, **kwargs)  <span class="comment"># 将通用形参传递给被修饰函数</span></span><br><span class="line">        end_time = time.time()</span><br><span class="line">        total = end_time - start_time</span><br><span class="line">        print(total)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 进阶版 修饰有返回值的函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(*args, **kwargs)</span>:</span>  <span class="comment"># 在内函数加上通用形参</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        res = func(*args, **kwargs)  <span class="comment"># 将通用形参传递给被修饰函数，接收被装饰函数的返回值</span></span><br><span class="line">        end_time = time.time()</span><br><span class="line">        total = end_time - start_time</span><br><span class="line">        print(total)</span><br><span class="line">        <span class="keyword">return</span> res  <span class="comment"># 将返回值 返回</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 进阶版 装饰器带参数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decoration_runtime</span><span class="params">(tp=None)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            start_time = time.time()</span><br><span class="line">            res = func(*args, **kwargs)</span><br><span class="line">            end_time = time.time()</span><br><span class="line">            total = end_time - start_time</span><br><span class="line">            print(total, tp)  <span class="comment"># 在函数内处理装饰器传入的参数</span></span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修复装饰器</span></span><br><span class="line"><span class="comment"># 为什么需要修复装饰器</span></span><br><span class="line"><span class="comment"># 使得包裹函数inner 在调用__name__ ，__module__和 __doc__属性 与被装饰的函数 完全相同</span></span><br><span class="line"><span class="comment"># 方法</span></span><br><span class="line"><span class="comment"># improt functools</span></span><br><span class="line"><span class="comment"># 在装饰器最内层函数 添加修饰@functools.wraps(func)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decoration_runtime</span><span class="params">(tp=None)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func)</span>:</span></span><br><span class="line"><span class="meta">        @functools.wraps(func)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            start_time = time.time()</span><br><span class="line">            res = func(*args, **kwargs)</span><br><span class="line">            end_time = time.time()</span><br><span class="line">            total = end_time - start_time</span><br><span class="line">            print(total, tp)  <span class="comment"># 在函数内处理装饰器传入的参数</span></span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
+<h3 id="多层装饰器的执行顺序"><a href="#多层装饰器的执行顺序" class="headerlink" title="多层装饰器的执行顺序"></a>多层装饰器的执行顺序</h3><p>装饰器函数的执行顺序分为定义阶段和执行阶段<br>装饰器函数在被装饰函数定义好后立即执行<br>在函数定义阶段：执行顺序从内为外的<br>在函数执行阶段：执行顺序由外到内，一层层执行<br>eg:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_test1</span><span class="params">(fun)</span>:</span></span><br><span class="line">    print(<span class="string">"第一歩！"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">call_test1</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"第四歩"</span>)</span><br><span class="line">        fun()</span><br><span class="line">        print(<span class="string">"第六歩"</span>)</span><br><span class="line">    <span class="keyword">return</span> call_test1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_test2</span><span class="params">(fun)</span>:</span></span><br><span class="line">    print(<span class="string">"第二歩"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">call_test2</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"第三歩"</span>)</span><br><span class="line">        fun()</span><br><span class="line">        print(<span class="string">"第七歩"</span>)</span><br><span class="line">    <span class="keyword">return</span> call_test2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@set_test2</span></span><br><span class="line"><span class="meta">@set_test1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">work</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"第五歩"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    work()</span><br><span class="line">    print(<span class="string">"第八歩！"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果</span></span><br><span class="line"><span class="comment"># 第一歩！</span></span><br><span class="line"><span class="comment"># 第二歩</span></span><br><span class="line"><span class="comment"># 第三歩</span></span><br><span class="line"><span class="comment"># 第四歩</span></span><br><span class="line"><span class="comment"># 第五歩</span></span><br><span class="line"><span class="comment"># 第六歩</span></span><br><span class="line"><span class="comment"># 第七歩</span></span><br><span class="line"><span class="comment"># 第八歩！</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/22/面向对象/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3b6.png?v5"
+                alt="Fixd Quan" />
+            
+              <p class="site-author-name" itemprop="name">Fixd Quan</p>
+              <p class="site-description motion-element" itemprop="description">生时何必久睡，死后自会长眠。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fixdq" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/fixdq/" target="_blank" title="博客园">
+                      
+                        <i class="fa fa-fw fa-cnblogs"></i>博客园</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是装饰器"><span class="nav-number">1.</span> <span class="nav-text">什么是装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用装饰器"><span class="nav-number">2.</span> <span class="nav-text">为什么要用装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用"><span class="nav-number">3.</span> <span class="nav-text">如何使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多层装饰器的执行顺序"><span class="nav-number">4.</span> <span class="nav-text">多层装饰器的执行顺序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fixd Quan</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $('body').backstretch("http://i4.bvimg.com/654906/6994a2f27f2b074c.jpg");
+  </script>
+</body>
+</html>

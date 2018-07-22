@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#fff">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="https://cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#fff">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="面向对象面相对象编程—-Object Oriental Programming，简称OOP，是一种程序设计的思想。OOP是把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fixd">
+<meta property="og:url" content="https://fixdq.github.io/2018/07/22/面向对象/index.html">
+<meta property="og:site_name" content="fixd">
+<meta property="og:description" content="面向对象面相对象编程—-Object Oriental Programming，简称OOP，是一种程序设计的思想。OOP是把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-22T13:03:02.355Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fixd">
+<meta name="twitter:description" content="面向对象面相对象编程—-Object Oriental Programming，简称OOP，是一种程序设计的思想。OOP是把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fixdq.github.io/2018/07/22/面向对象/"/>
+
+
+
+
+
+  <title> | fixd</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+      
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">fixd</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">subtitle</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+      <a href="https://github.com/fixdq"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fixdq.github.io/2018/07/22/面向对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fixd Quan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3b6.png?v5">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fixd">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-22T21:03:02+08:00">
+                2018-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><p>面相对象编程—-Object Oriental Programming，简称OOP，是一种程序设计的思想。<br>OOP是把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。<br><a id="more"></a><br>面向过程编程—-核心是‘过程’二字，就是把计算机程序看成是一系列命令的集合，是一系列的函数的顺序执行。</p>
+<table>
+<thead>
+<tr>
+<th>编程方式</th>
+<th>面向对象</th>
+<th>面向过程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优点</td>
+<td>复杂的问题流程化，进而简单化</td>
+<td>扩展性强</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>可扩展性差</td>
+<td>1.编程的复杂度高于面向过程2.可控性差，无法像面向过程一样精准的预测问题的处理流程和结果</td>
+</tr>
+</tbody>
+</table>
+<p>面向对象的应用场景：需求经常变化的软件，一般需求的变化都集中在用户层，互联网应用，企业内部软件，游戏等。</p>
+<h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h3><p><code>什么是对象</code><br>对象是特征和技能的结合体，那类就是一系列对象相同的特征与技能的结合体</p>
+<p>类：具有相同属性特征的一类事物<br>对象：具体的某一事物</p>
+<p>现实世界中：先有对象，再有类<br>在程序中：先定义类，后调用类产生对象</p>
+<p>定义模板<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1. 在程序中特征用变量标识，技能用函数标识</span></span><br><span class="line"><span class="comment">#2. 因而类中最常见的无非是：变量和函数的定义</span></span><br><span class="line"><span class="comment">#3. 在定义类的阶段会立刻执行类体内的代码，然后将产生的名字存放于类名称空间中</span></span><br><span class="line"><span class="comment">#4. __init__  不能有返回值</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> 类名:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,参数<span class="number">1</span>,参数<span class="number">2</span>)</span>:</span></span><br><span class="line">        self.对象的属性<span class="number">1</span> = 参数<span class="number">1</span></span><br><span class="line">        self.对象的属性<span class="number">2</span> = 参数<span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法名<span class="params">(self)</span>:</span><span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法名2<span class="params">(self)</span>:</span><span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">对象名 = 类名(<span class="number">1</span>,<span class="number">2</span>)  <span class="comment">#对象就是实例，代表一个具体的东西</span></span><br><span class="line">                  <span class="comment">#类名() : 类名+括号就是实例化一个类，相当于调用了__init__方法</span></span><br><span class="line">                  <span class="comment">#括号里传参数，参数不需要传self，其他与init中的形参一一对应</span></span><br><span class="line">                  <span class="comment">#结果返回一个对象</span></span><br><span class="line">对象名.对象的属性<span class="number">1</span>   <span class="comment">#查看对象的属性，直接用 对象名.属性名 即可</span></span><br><span class="line">对象名.方法名()     <span class="comment">#调用类中的方法，直接用 对象名.方法名() 即可</span></span><br></pre></td></tr></table></figure></p>
+<p><span style="color: red">注意点：</span></p>
+<ol>
+<li>类中可以有任意python代码，这些代码在类定义阶段就会执行</li>
+<li>因而会产生新的名称空间，用来存放类额变量名与函数名，可以通过<code>类名.__dict__</code>查看</li>
+<li>对于经典类来说我们可以通过该字典操作类的名称空间的名字（新式类有限制），但python为我们提供了专门的语法</li>
+<li>点是访问属性的语法，类中定义的名字，都是类的属性</li>
+</ol>
+<p><strong>python为类内置的特殊属性</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">类名.__name__<span class="comment"># 类的名字(字符串)</span></span><br><span class="line">类名.__doc__<span class="comment"># 类的文档字符串</span></span><br><span class="line">类名.__base__<span class="comment"># 类的第一个父类(在讲继承时会讲)</span></span><br><span class="line">类名.__bases__<span class="comment"># 类所有父类构成的元组(在讲继承时会讲)</span></span><br><span class="line">类名.__dict__<span class="comment"># 类的字典属性</span></span><br><span class="line">类名.__module__<span class="comment"># 类定义所在的模块</span></span><br><span class="line">类名.__class__<span class="comment"># 实例对应的类(仅新式类中)</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="类的实例化，对象的操作"><a href="#类的实例化，对象的操作" class="headerlink" title="类的实例化，对象的操作"></a>类的实例化，对象的操作</h3><p>调用类产生对象的过程成为类的实例化，实例化的结果是一个对象，或叫做一个实例<br>eg：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义一个People类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age,sex)</span>:</span></span><br><span class="line">        self.name=name</span><br><span class="line">        self.age=age</span><br><span class="line">        self.sex=sex</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'%s is running'</span> %self.name)</span><br><span class="line"><span class="comment"># 实例化一个对象  obj</span></span><br><span class="line">obj = People(<span class="string">'fixd'</span>,<span class="number">18</span>,<span class="string">'male'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>实例化对象做的三件事</p>
+<ol>
+<li>先产生一个空对象</li>
+<li>自动触发类内部的<strong>init</strong>函数的执行</li>
+<li>将空对象，以及调用类括号传入的参数，一同传给<strong>init_</strong>,为对象定制都有的属性</li>
+</ol>
+<h3 id="对象的操作"><a href="#对象的操作" class="headerlink" title="对象的操作"></a>对象的操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(obj.name) <span class="comment">#查看 属性name的值</span></span><br><span class="line">obj.education=<span class="string">'哈佛'</span>  <span class="comment"># 添加属性</span></span><br><span class="line"><span class="keyword">del</span> obj.name    <span class="comment"># 删除属性</span></span><br><span class="line">obj.age=<span class="number">19</span>      <span class="comment"># 修改属性值</span></span><br><span class="line">print(obj.__dict__) <span class="comment"># 查看实例化对象的名称空间</span></span><br></pre></td></tr></table></figure>
+<h3 id="对象属性的查找顺序"><a href="#对象属性的查找顺序" class="headerlink" title="对象属性的查找顺序"></a>对象属性的查找顺序</h3><ul>
+<li>先找对象自己的名称空间—–&gt;类的名称空间</li>
+<li>类的数据属性：是给对象用的，而且直接共享给所有对象用的，内存地址都一样</li>
+<li>类的函数属性：是给对象调用，是绑定给对象用的，绑定到不同的对象就是不同的绑定方法</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/04/装饰器复习/" rel="next" title="装饰器">
+                <i class="fa fa-chevron-left"></i> 装饰器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/22/jQuery/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3b6.png?v5"
+                alt="Fixd Quan" />
+            
+              <p class="site-author-name" itemprop="name">Fixd Quan</p>
+              <p class="site-description motion-element" itemprop="description">生时何必久睡，死后自会长眠。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fixdq" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/fixdq/" target="_blank" title="博客园">
+                      
+                        <i class="fa fa-fw fa-cnblogs"></i>博客园</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象"><span class="nav-number">1.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类和对象"><span class="nav-number">2.</span> <span class="nav-text">类和对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的实例化，对象的操作"><span class="nav-number">3.</span> <span class="nav-text">类的实例化，对象的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的操作"><span class="nav-number">4.</span> <span class="nav-text">对象的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象属性的查找顺序"><span class="nav-number">5.</span> <span class="nav-text">对象属性的查找顺序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fixd Quan</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $('body').backstretch("http://i4.bvimg.com/654906/6994a2f27f2b074c.jpg");
+  </script>
+</body>
+</html>

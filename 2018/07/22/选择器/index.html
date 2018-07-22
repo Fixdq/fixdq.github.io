@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#fff">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="https://cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#fff">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="#css介绍 ##css语法1.css实例每个css样式有两个部分组成：选择器和声明。声明又包括属性和属性值。每个声明后用分号结束">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fixd">
+<meta property="og:url" content="https://fixdq.github.io/2018/07/22/选择器/index.html">
+<meta property="og:site_name" content="fixd">
+<meta property="og:description" content="#css介绍 ##css语法1.css实例每个css样式有两个部分组成：选择器和声明。声明又包括属性和属性值。每个声明后用分号结束">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://images2017.cnblogs.com/blog/867021/201712/867021-20171215115756808-909989248.png">
+<meta property="og:updated_time" content="2018-07-22T13:03:37.360Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fixd">
+<meta name="twitter:description" content="#css介绍 ##css语法1.css实例每个css样式有两个部分组成：选择器和声明。声明又包括属性和属性值。每个声明后用分号结束">
+<meta name="twitter:image" content="https://images2017.cnblogs.com/blog/867021/201712/867021-20171215115756808-909989248.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fixdq.github.io/2018/07/22/选择器/"/>
+
+
+
+
+
+  <title> | fixd</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+      
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">fixd</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">subtitle</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+      <a href="https://github.com/fixdq"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fixdq.github.io/2018/07/22/选择器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fixd Quan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3b6.png?v5">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fixd">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-22T21:03:37+08:00">
+                2018-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#css介绍</p>
+<p>##css语法<br>1.css实例<br>每个css样式有两个部分组成：选择器和声明。声明又包括属性和属性值。每个声明后用分号结束<br><a id="more"></a><br><img src="https://images2017.cnblogs.com/blog/867021/201712/867021-20171215115756808-909989248.png" alt="img001"><br>2.css注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*这是注释*/</span><br></pre></td></tr></table></figure></p>
+<p>##css的几种引入方式</p>
+<p>1.行内样式</p>
+<blockquote>
+<p>嵌入式是将css样式集中写在网页的<code>&lt;head&gt;&lt;/head&gt;</code>标签对的<code>&lt;style&gt;&lt;/style&gt;</code>标签对中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&lt;p style=&quot;color: red&quot;&gt;Hello world.&lt;/p&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2.内部样式</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p><head><br>    <meta charset="UTF-8"><br>    <title>Title</title><br>    <style><br>        p{<br>            background-color: #2b99ff;<br>        }<br>    </style><br></head><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">3.外部样式</span><br><span class="line">&gt;外部样式就是将css写在一个单独的文件中，然后在页面进行引入即可。推荐使用此方式。</span><br><span class="line">&gt;```html</span><br><span class="line">&gt;&lt;link href=&quot;mystyle.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##css选择器</span><br><span class="line">1.基本选择器</span><br><span class="line">&gt;1.元素选择器</span><br><span class="line">​```css</span><br><span class="line">p &#123;color: &quot;red&quot;;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2.id选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#i1</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>3.类选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.c1</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.c1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>4.通用选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>2.组合选择器</p>
+<blockquote>
+<p>1.后代选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">/*li内部的a标签设置字体颜色*/</span></span><br><span class="line">&gt;<span class="selector-tag">li</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">&gt;  color: green;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;2.儿子选择器</span><br><span class="line">&gt;```css</span><br><span class="line">/*选择所有父级是 &lt;div&gt; 元素的 &lt;p&gt; 元素*/</span><br><span class="line">div&gt;p &#123;</span><br><span class="line">  font-family: &quot;Arial Black&quot;, arial-black, cursive;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>3.毗邻选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">/*选择所有紧接着&lt;div&gt;元素之后的&lt;p&gt;元素*/</span></span><br><span class="line">&gt;<span class="selector-tag">div</span>+<span class="selector-tag">p</span> &#123;</span><br><span class="line">&gt;  margin: 5px;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;4.弟弟选择器</span><br><span class="line">&gt;```css</span><br><span class="line">/*i1后面所有的兄弟p标签*/</span><br><span class="line">#i1~p &#123;</span><br><span class="line">  border: 2px solid royalblue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.属性选择器</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">/*用于选取带有指定属性的元素。*/</span></span><br><span class="line">&gt;<span class="selector-tag">p</span><span class="selector-attr">[title]</span> &#123;</span><br><span class="line">&gt;  color: red;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;<span class="comment">/*用于选取带有指定属性和值的元素。*/</span></span><br><span class="line">&gt;<span class="selector-tag">p</span><span class="selector-attr">[title="213"]</span> &#123;</span><br><span class="line">&gt;  color: green;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">不怎么常用的属性选择器</span><br><span class="line">&gt;```css</span><br><span class="line">/*找到所有title属性以hello开头的元素*/</span><br><span class="line">[title^=&quot;hello&quot;] &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">/*找到所有title属性以hello结尾的元素*/</span><br><span class="line">[title$=&quot;hello&quot;] &#123;</span><br><span class="line">  color: yellow;</span><br><span class="line">&#125;</span><br><span class="line">/*找到所有title属性中包含（字符串包含）hello的元素*/</span><br><span class="line">[title*=&quot;hello&quot;] &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">/*找到所有title属性(有多个值或值以空格分割)中有一个值为hello的元素：*/</span><br><span class="line">[title~=&quot;hello&quot;] &#123;</span><br><span class="line">  color: green;</span><br></pre></td></tr></table></figure>
+<p>4.分组和嵌套</p>
+<blockquote>
+<p>1.分组<br>当多个元素的样式相同的时候，我们没有必要重复地为每个元素都设置样式，我们可以通过在多个选择器之间使用逗号分隔的分组选择器来统一设置元素样式。<br>例如<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="selector-tag">div</span>,<span class="selector-tag">p</span> &#123;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<pre><code>color: red;
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;上面的代码为div标签和p标签同意设置字体为红色</span><br><span class="line">&gt;通常，我们会分两行来写，更清晰</span><br><span class="line">&gt;```css</span><br><span class="line">div,</span><br><span class="line">p &#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>2.嵌套<br>多种选择器可以混合起来使用，比如：.c1类内部所有的p标签设置字体颜色为红色。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="selector-class">.c1</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<pre><code>color:red;
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5.伪类选择器</span><br><span class="line">&gt;```css</span><br><span class="line">/* 未访问的链接 */</span><br><span class="line">a:link &#123;</span><br><span class="line">  color: #FF0000</span><br><span class="line">&#125;</span><br><span class="line">/* 已访问的链接 */</span><br><span class="line">a:visited &#123;</span><br><span class="line">  color: #00FF00</span><br><span class="line">&#125;</span><br><span class="line">/* 鼠标移动到链接上 */</span><br><span class="line">a:hover &#123;</span><br><span class="line">  color: #FF00FF</span><br><span class="line">&#125;</span><br><span class="line">/* 选定的链接 */</span><br><span class="line">a:active &#123;</span><br><span class="line">  color: #0000FF</span><br><span class="line">&#125;</span><br><span class="line">/*input输入框获取焦点时样式*/</span><br><span class="line">input:focus &#123;</span><br><span class="line">  outline: none;</span><br><span class="line">  background-color: #eee;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>6.伪元素选择器</p>
+<blockquote>
+<p>1.first-letter<br>常用的给首字母设置样式<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="selector-tag">p</span><span class="selector-pseudo">:first-letter</span> &#123;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<pre><code>font-size: 48px;
+color: red;
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;2.before</span><br><span class="line">&gt;```css</span><br><span class="line">/*在每个&lt;p&gt;元素之前插入内容*/</span><br><span class="line">p:before &#123;</span><br><span class="line">  content:&quot;*&quot;;</span><br><span class="line">  color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>3.after<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;/*在每个&lt;p&gt;元素之后插入内容*/</span><br><span class="line">&gt;p:after &#123;</span><br><span class="line">&gt;  content:&quot;[?]&quot;;</span><br><span class="line">&gt;  color:blue;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;font color=&quot;red&quot;&gt;before和after多用于清除浮动&lt;/font&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">7.选择器优先级</span><br><span class="line">&gt;css继承</span><br><span class="line">&gt;继承是CSS的一个主要特征，它是依赖于祖先-后代的关系的。继承是一种机制，它允许样式不仅可以应用于某个特定的元素，还可以应用于它的后代。例如一个body定义了的字体颜色值也会应用到段落的文本中。</span><br><span class="line">&gt;```css</span><br><span class="line">&gt;body &#123;</span><br><span class="line">	color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>此时页面上所有的标签都会继承body的字体颜色。然而css继承性的权重是非常低的，是比普通元素权重还要低的0.</p>
+<p>我们只要给对应的标签设置字体颜色就可覆盖掉他继承的样式<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="selector-tag">p</span> &#123;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<pre><code>color: green;
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">此外，继承是css重要的一部分，我们甚至不用去考虑它为什么能够这样，但css继承也是有限制的。有一些属性不能被继承，如：border，margin，padding，background等</span><br><span class="line"></span><br><span class="line">&gt;2.选择器的优先级</span><br><span class="line">&gt;优先级是按照不同选择器的权重来决定的，具体的选择器权重计算方式如下图：</span><br><span class="line">&gt;![img002](https://images2018.cnblogs.com/blog/867021/201803/867021-20180305155201408-1680872107.png)</span><br><span class="line">&gt;除此之外还可以通过添加 !import方式来强制让样式生效，但不推荐使用，因为过多使用!import会使样式表文件混乱不易维护。</span><br><span class="line">&gt;&lt;font color=&quot;red&quot;&gt;万不得已可以使用!import&lt;/font&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/22/jQuery/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3b6.png?v5"
+                alt="Fixd Quan" />
+            
+              <p class="site-author-name" itemprop="name">Fixd Quan</p>
+              <p class="site-description motion-element" itemprop="description">生时何必久睡，死后自会长眠。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fixdq" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/fixdq/" target="_blank" title="博客园">
+                      
+                        <i class="fa fa-fw fa-cnblogs"></i>博客园</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fixd Quan</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $('body').backstretch("http://i4.bvimg.com/654906/6994a2f27f2b074c.jpg");
+  </script>
+</body>
+</html>
